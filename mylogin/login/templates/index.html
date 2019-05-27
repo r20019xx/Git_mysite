@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test index</title>
+</head>
+<body>
+    <h3>您還未登入，要登入或註冊嗎？</h3>
+    <input type="button" onclick="loginfunc()" value="登入">
+    <input type="button" onclick="registfunc()" value="註冊">
+    <script>
+        function loginfunc() {
+            window.location.href='/login';
+        }
+        function registfunc() {
+            window.location.href='/regist';
+        }
+    </script>
+
+{% if messages %}
+  <script>
+    {% for msg in messages %}
+        alert('{{ msg.message }}');
+    {% endfor %}
+  </script>
+{% endif %}
+
+</body>
+</html>

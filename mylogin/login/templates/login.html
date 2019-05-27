@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>登入頁面</title>
+</head>
+<body>
+<form action="" method="POST">
+  {% csrf_token %}
+  登入姓名:<input type="text" name="name">
+  <br>
+  登入密碼:<input type="password" name="password">
+  <br>
+  <input type="submit" value="提交">
+  <input type="button" onclick="registfunc()" value="註冊">
+</form>
+
+<script>
+   function registfunc() {
+        window.location.href='/regist';
+    }
+</script>
+
+{% if messages %}
+  <script>
+    {% for msg in messages %}
+        alert('{{ msg.message }}');
+    {% endfor %}
+  </script>
+{% endif %}
+
+</body>
+</html>
